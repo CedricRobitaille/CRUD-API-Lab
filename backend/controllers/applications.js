@@ -13,6 +13,15 @@ const index = async (req, res) => {
   }
 }
 
+const show = async (req, res) => {
+  try {
+    const application = await Application.findById(req.params.appId);
+    res.status(200).json(application);
+  } catch (error) {
+    res.status(404).json({ message: error.message })
+  }
+}
+
 // Create - /api/applications
 const create = async (req, res) => {
   try {
@@ -45,6 +54,7 @@ const del = async (req, res) => {
 
 module.exports = {
   index,
+  show,
   create,
   update,
   del,

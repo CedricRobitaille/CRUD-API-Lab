@@ -21,6 +21,7 @@ app.use(cors());
 const applicationsCtrl = require("./controllers/applications.js");
 
 app.get("/api/applications", applicationsCtrl.index);
+app.get("/api/applications/:appId", applicationsCtrl.show);
 app.post("/api/applications", applicationsCtrl.create);
 app.put("/api/applications/:appId", applicationsCtrl.update);
 app.delete("/api/applications/:appId", applicationsCtrl.del);
