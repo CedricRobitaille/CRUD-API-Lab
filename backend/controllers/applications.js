@@ -7,7 +7,7 @@ const Application = require("../models/application.js")
 const index = async (req, res) => {
   try {
     const applications = await Application.find();
-    res.status(200).json({ applications });
+    res.status(200).json( applications );
   } catch (error) {
     res.status(400).json({ message: error.message })
   }
@@ -16,7 +16,7 @@ const index = async (req, res) => {
 const show = async (req, res) => {
   try {
     const application = await Application.findById(req.params.appId);
-    res.status(200).json(application);
+    res.status(200).json( application );
   } catch (error) {
     res.status(404).json({ message: error.message })
   }
@@ -26,7 +26,7 @@ const show = async (req, res) => {
 const create = async (req, res) => {
   try {
     const newApplication = await Application.create(req.body);
-    res.status(201).json({ newApplication });
+    res.status(201).json( newApplication );
   } catch (error) {
     res.status(400).json({ message: error.message })
   }
@@ -36,7 +36,7 @@ const create = async (req, res) => {
 const update = async (req, res) => {
   try {
     const updatedApplication = await Application.findByIdAndUpdate(req.params.appId, req.body, { new: true });
-    res.status(200).json({ updatedApplication });
+    res.status(200).json( updatedApplication );
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
