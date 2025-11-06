@@ -25,16 +25,35 @@ const App = () => {
     getData();
   }, [])
 
+  const loadApplications = async () => {
+    try {
+      const response = await fetch(`http://localhost:3000/api/applications`);
+      if (!response.ok) {
+        throw new Error(error);
+      }
+      const data = await response.json();
+      setApplications(data);
+    } catch (error) {
+      console.log("Error fetching base data: ", error.message)
+    }
+  }
+
+  // Change the MainView state
   const changeView = async (newView) => {
     setView(newView);
+
+    if (newView === "viewApps") {
+      loadApplications();
+    }
   }
+
 
  
 
   return (
     <>
       <TopNav changeView={changeView} view={view}/>
-      <MainView view={view} applications={applications} />
+      <MainView changeView={changeView} view={view} applications={applications} />
     </>
   )
 };

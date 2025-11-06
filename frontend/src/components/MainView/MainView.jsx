@@ -8,7 +8,7 @@ const MainView = (props) => {
   return (
     <>
       { props.view === "viewApps" && <ApplicationTable applications={props.applications}/> }
-      { props.view === "newApp" && <NewApplicationForm />}
+      {props.view === "newApp" && <NewApplicationForm changeView={props.changeView} />}
     </>
   )
 }

@@ -25,7 +25,7 @@ const NewApplicationForm = (props) => {
         throw new Error(error);
       }
       const data = await response.json();
-      console.log(data);
+      props.changeView("viewApps");
     } catch (error) {
       console.log("Error fetching base data: ", error.message)
     }
