@@ -1,14 +1,35 @@
 import { useState } from "react";
 const NewApplicationForm = (props) => {
 
-  const [formData, setFormData] = useState({
+  const defaultData = {
     company: "",
     position: "",
     salary: 0,
     notes: "",
     starred: false,
     status: "Applied",
-  });
+  }
+
+  const [formData, setFormData] = useState(defaultData);
+
+  const putApplication = async () => {
+    try {
+      const response = await fetch(`http://localhost:3000/api/applications`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      if (!response.ok) {
+        throw new Error(error);
+      }
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.log("Error fetching base data: ", error.message)
+    }
+  }
 
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
@@ -16,9 +37,8 @@ const NewApplicationForm = (props) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    
-    console.log("Creating application with the following information: ", formData);
+    await putApplication();
+    setFormData(defaultData)
   }
 
   return (
