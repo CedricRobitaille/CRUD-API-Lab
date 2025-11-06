@@ -3,7 +3,7 @@ const TopNav = (props) => {
     <nav>
       { props.view === "viewApps" && <h1>Your Applications</h1> }
       { props.view === "newApp" && <h1>New Application</h1> }
-      <button onClick={() => { props.changeView("newApp") }}>New Application</button>
+      <button className="btn-new" onClick={() => { props.changeView("newApp") }}>New Application</button>
     </nav>
   )
 }

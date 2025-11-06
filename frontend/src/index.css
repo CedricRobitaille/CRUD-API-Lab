@@ -13,6 +13,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 body {
   margin: 0;
   display: flex;
@@ -22,6 +28,63 @@ body {
   width: 100%;
   margin: 0 auto;
 }
+
+nav {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #ffffff20
+}
+
+.btn-new {
+  padding: .5rem 1rem;
+  cursor: pointer;
+}
+
+.application-table {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  background-color: #3e3e3f;
+}
+
+.application-table-row ul {
+  display: grid;
+  grid-template-columns: 
+    16px 
+    minmax(12ch,25ch) 
+    minmax(25ch, 35ch) 
+    minmax(5ch, 15ch)
+    minmax(12ch, 100vw)
+    minmax(8ch, 12ch);
+  gap: 1rem;
+  align-items: center;
+
+  padding: .25rem;
+  background-color: #242424;
+}
+
+.table-header {
+  background-color: #3b3c3d;
+  
+}
+
+.status {
+  padding: .4rem .75rem .5rem;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
 
 @media (prefers-color-scheme: light) {
   :root {
