@@ -8,6 +8,8 @@ const applicationSchema = mongoose.Schema({
     enum: ["Applied", "Interview", "Offer", "Rejected", "Accepted"],
     default: "Applied"
   },
+  starred: Boolean,
+  salary: Number,
   notes: String,
 })
 

@@ -11,12 +11,17 @@ const App = () => {
   // Initial Loading of Data
   useEffect(() => {
     const getData = async () => {
-      const response = await fetch(`http://localhost:3000/api/applications`);
-      const data = await response.json();
-
-      setApplications(data);
+      try {
+        const response = await fetch(`http://localhost:3000/api/applications`);
+        if (!response.ok) {
+          throw new Error(error);
+        }
+        const data = await response.json();
+        setApplications(data);
+      } catch (error) {
+        console.log("Error fetching base data: ", error.message)
+      }
     }
-
     getData();
   }, [])
 
@@ -24,10 +29,12 @@ const App = () => {
     setView(newView);
   }
 
+ 
+
   return (
     <>
       <TopNav changeView={changeView} view={view}/>
-      <MainView view={view} applications={applications}/>
+      <MainView view={view} applications={applications} />
     </>
   )
 };

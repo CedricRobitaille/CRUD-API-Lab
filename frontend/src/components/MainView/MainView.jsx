@@ -1,9 +1,14 @@
 import ApplicationTable from "../ApplicationTable/ApplicationTable";
+import NewApplicationForm from "../NewApplicationForm/NewApplicationForm";
+
+
 
 const MainView = (props) => {
+
   return (
     <>
-      <ApplicationTable applications={props.applications}/>
+      { props.view === "viewApps" && <ApplicationTable applications={props.applications}/> }
+      { props.view === "newApp" && <NewApplicationForm />}
     </>
   )
 }
