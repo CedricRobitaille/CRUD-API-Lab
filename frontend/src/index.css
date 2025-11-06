@@ -13,6 +13,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+#root {
+  width: 100%;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -22,7 +26,6 @@
 body {
   margin: 0;
   display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
   width: 100%;
@@ -46,34 +49,47 @@ nav {
 .application-table {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1px;
-  background-color: #3e3e3f;
+  margin: 1rem 1rem;
+  padding: 1rem;
+  border: 1px solid #3b3c3d;
+  border-radius: 12px;
 }
 
 .application-table-row ul {
   display: grid;
   grid-template-columns: 
     16px 
-    minmax(12ch,25ch) 
+    minmax(15ch, 25ch) 
     minmax(25ch, 35ch) 
     minmax(5ch, 15ch)
-    minmax(12ch, 100vw)
-    minmax(8ch, 12ch);
+    1fr
+    minmax(8ch, 12ch)
+    32px;
   gap: 1rem;
   align-items: center;
 
   padding: .25rem;
-  background-color: #242424;
+  border-top: 1px solid #3b3c3d;
 }
 
 .table-header {
-  background-color: #3b3c3d;
-  
+  background-color: #2e2f30;
+  border-radius: 8px 8px 0 0 ;
 }
 
 .status {
   padding: .4rem .75rem .5rem;
+  margin: 0 .5rem;
   text-align: center;
+}
+
+.application-table-row button {
+  height: 22px;
+  width: 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
 }
 
 
