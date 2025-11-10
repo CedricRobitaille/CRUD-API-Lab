@@ -36,8 +36,8 @@ const ApplicationTableRow = (props) => {
     <li className="application-table-row">
       <ul>
         <li>
-          <input type="checkbox" name="starred" checked={starred === "on"} onChange={handleStatusChange} />
-          <label htmlFor="starred">★</label>
+          <input type="checkbox" name="starred" id="starred" checked={starred === "on"} onChange={handleStatusChange} />
+          <label htmlFor="starred" className="starred-label" >★</label>
         </li>
         <li>{props.application.company}</li>
         <li>{props.application.position}</li>

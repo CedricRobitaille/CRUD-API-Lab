@@ -133,7 +133,28 @@ nav {
   color: #515355
 }
 
+.application-table-row input[type="checkbox"] {
+  display: none;
+}
 
+.starred-label {
+  color: rgb(133, 133, 133);
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: .125s;
+}
+
+.starred-label:hover {
+  color: rgb(88, 88, 88);
+}
+
+.application-table-row input[type="checkbox"]:checked + .starred-label {
+  color: gold;
+}
+
+.application-table-row input[type="checkbox"]:checked + .starred-label:hover {
+  color: orange;
+}
 
 
 
