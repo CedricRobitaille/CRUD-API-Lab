@@ -57,12 +57,12 @@ const NewApplicationForm = (props) => {
 
       <div className="input-collection">
         <label htmlFor="company">Company Name</label>
-        <input type="text" name="company" id="company" value={formData.company} onChange={handleChange} required />
+        <input type="text" name="company" id="company" placeholder="Input a company name" value={formData.company} onChange={handleChange} required />
       </div>
 
       <div className="input-collection">
         <label htmlFor="position">Job Title</label>
-        <input type="text" name="position" id="position" value={formData.position} onChange={handleChange} required />
+        <input type="text" name="position" id="position" placeholder="Input a the job title" value={formData.position} onChange={handleChange} required />
       </div>
 
       <div className="input-collection">

@@ -1,0 +1,59 @@
+.application-table-row select {
+  border: none;
+  background-color: #ffffff;
+  border: 1.25px solid #d5dee9;
+  color: #153150;
+  padding: .35rem .75rem;
+  width: fit-content;
+  border-radius: 6px;
+  text-overflow: none;
+  cursor: pointer;
+}
+
+.application-table-row select:hover {
+  background-color: #f3f6f8;
+}
+
+.status {
+  padding: .4rem .75rem .5rem;
+}
+
+.application-table-row button {
+  padding: none;
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+  cursor: pointer;
+  aspect-ratio: 1/1;
+  padding: 0rem .5rem;
+}
+
+.application-table-row button:hover {
+  background-color: #f0f4f7;
+}
+
+.application-table-row input[type="checkbox"] {
+  display: none;
+}
+
+.starred-label {
+  color: #bfccd6;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: .25s;
+}
+
+.starred-label:hover {
+  color: #8a97a8;
+}
+
+.application-table-row input[type="checkbox"]:checked+.starred-label {
+  color: #eeb90a;
+}
+
+.application-table-row input[type="checkbox"]:checked+.starred-label:hover {
+  color: #d48b03;
+}

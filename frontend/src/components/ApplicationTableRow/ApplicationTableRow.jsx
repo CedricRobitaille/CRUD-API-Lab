@@ -1,5 +1,7 @@
 import { useState } from "react"
 
+import "./ApplicationTableRow.css"
+
 const ApplicationTableRow = (props) => {
   
   const [status, setStatus] = useState(props.application.status)
