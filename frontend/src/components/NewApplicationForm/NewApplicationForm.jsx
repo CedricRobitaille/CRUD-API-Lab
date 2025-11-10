@@ -89,7 +89,7 @@ const NewApplicationForm = (props) => {
 
       <div className="input-spread">
         <button type="submit">Save Application</button>
-        <button type="button" onClick={resetForm}>Reset Form</button>
+        <button type="button" onClick={resetForm} className="reset">Reset Form</button>
       </div>
     </form>
   )
