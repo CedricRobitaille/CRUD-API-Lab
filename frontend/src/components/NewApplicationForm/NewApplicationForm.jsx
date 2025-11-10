@@ -24,8 +24,9 @@ const NewApplicationForm = (props) => {
       if (!response.ok) {
         throw new Error(error);
       }
+      setFormData(defaultData);
       const data = await response.json();
-      props.changeView("viewApps");
+      props.changeView("View Applications");
     } catch (error) {
       console.log("Error fetching base data: ", error.message)
     }
@@ -38,12 +39,11 @@ const NewApplicationForm = (props) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     await putApplication();
-    setFormData(defaultData)
   }
 
   return (
     <>
-      <button onClick={() => { props.changeView("viewApps") }}>Back</button>
+      <button onClick={() => { props.changeView("View Applications") }}>Back</button>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="company">Company Name</label>

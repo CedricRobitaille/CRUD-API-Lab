@@ -1,21 +1,5 @@
 const ApplicationTableRow = (props) => {
 
-  const deleteApplication = async () => {
-    try {
-      console.log(props.application._id)
-      const response = await fetch(`http://localhost:3000/api/applications/${props.application._id}`, {
-        method: "DELETE",
-      });
-      if (!response.ok) {
-        throw new Error(error);
-      }
-      const data = await response.json();
-      props.changeView("viewApps");
-    } catch (error) {
-      console.log("Error fetching base data: ", error.message)
-    }
-  }
-
   return (
     <li className="application-table-row">
       <ul>
@@ -24,8 +8,16 @@ const ApplicationTableRow = (props) => {
         <li>{props.application.position}</li>
         <li>{props.application.salary}</li>
         <li>{props.application.notes}</li>
-        <li className="status">{props.application.status}</li>
-        <li><button onClick={() => { deleteApplication() }}>x</button></li>
+        <li className="status">
+          <select name="status" id="status" defaultValue={props.application.status}>
+            <option value="Applied">Applied</option>
+            <option value="Interview">Interview</option>
+            <option value="Offer">Offer</option>
+            <option value="Rejected">Rejected</option>
+            <option value="Accepted">Accepted</option>
+          </select>
+        </li>
+        <li><button onClick={() => { props.toggleConfirmationModal(props.application) } }>x</button></li>
       </ul>
     </li>
   )

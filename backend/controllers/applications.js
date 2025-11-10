@@ -26,6 +26,9 @@ const show = async (req, res) => {
 const create = async (req, res) => {
   try {
     const newApplication = await Application.create(req.body);
+    if (!newApplication) {
+      throw new Error("Could not create a new entry")
+    }
     res.status(201).json( newApplication );
   } catch (error) {
     res.status(400).json({ message: error.message })
@@ -46,6 +49,10 @@ const update = async (req, res) => {
 const del = async (req, res) => {
   try {
     const deletedApplication = await Application.findByIdAndDelete(req.params.appId);
+    if (!newApplication) {
+      throw new Error(`Could not delete entry: ${req.params.appId}`)
+    }
+    console.log("deleted entry: ", deletedApplication)
     res.status(200).json({ deletedApplication });
   } catch (error) {
     res.status(404).json({ message: error.message });

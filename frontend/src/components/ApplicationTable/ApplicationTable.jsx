@@ -16,7 +16,7 @@ const ApplicationTable = (props) => {
       </li>
       {
         props.applications.map((application) => (
-          <ApplicationTableRow application={application} key={application._id} changeView={props.changeView} />
+          <ApplicationTableRow application={application} key={application._id} changeView={props.changeView} toggleConfirmationModal={props.toggleConfirmationModal} />
         ))
       }
     </ul>
