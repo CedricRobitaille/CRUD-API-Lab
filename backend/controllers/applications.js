@@ -52,7 +52,7 @@ const del = async (req, res) => {
     if (!newApplication) {
       throw new Error(`Could not delete entry: ${req.params.appId}`)
     }
-    console.log("deleted entry: ", deletedApplication)
+    console.log("Deleted entry: ", deletedApplication)
     res.status(200).json({ deletedApplication });
   } catch (error) {
     res.status(404).json({ message: error.message });
