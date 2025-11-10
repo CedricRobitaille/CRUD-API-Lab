@@ -1,0 +1,75 @@
+.new-application-form {
+  position: relative;
+  height: 100%;
+  display: flex;  
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 58rem;
+  width: 100%;
+  margin: 0 auto;
+
+  padding: 1.5rem;
+  border: 1px solid #3b3b3b;
+  border-radius: 12px;
+}
+
+.new-application-form .input-collection {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+
+.new-application-form input, 
+.new-application-form select,
+.new-application-form textarea {
+  padding: .6rem .75rem .7rem;
+  border-radius: 4px;
+
+  border: .5px solid #686a6b;
+}
+
+textarea {
+  resize: vertical;
+  max-height: 32ch;
+  min-height: 8ch;
+}
+
+.new-application-form button {
+  width: fit-content;
+  padding: .5rem 1rem;
+}
+
+.input-spread {
+  display: flex;
+  justify-content: space-between;
+}
+
+.starred-container {
+  position: absolute;
+  right: .75rem;
+  top: .25rem;
+}
+
+.new-application-form input[type="checkbox"] {
+  display: none;
+}
+
+#starred-label {
+  color: rgb(133, 133, 133);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: .125s;
+}
+
+#starred-label:hover {
+  color: rgb(88, 88, 88);
+}
+
+.new-application-form input[type="checkbox"]:checked + #starred-label {
+  color: gold;
+}
+
+.new-application-form input[type="checkbox"]:checked + #starred-label:hover {
+  color: orange;
+}

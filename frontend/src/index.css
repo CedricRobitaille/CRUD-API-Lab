@@ -46,6 +46,10 @@ nav {
   cursor: pointer;
 }
 
+.application-table-row .status {
+  padding: .5rem 0;
+}
+
 .application-table {
   display: grid;
   grid-template-columns: 1fr;
@@ -59,17 +63,38 @@ nav {
   display: grid;
   grid-template-columns: 
     16px 
-    minmax(15ch, 25ch) 
+    minmax(15ch, 20ch) 
     minmax(25ch, 35ch) 
     minmax(5ch, 15ch)
     1fr
-    minmax(8ch, 12ch)
-    32px;
+    minmax(14ch, 14ch)
+    38px;
   gap: 1rem;
   align-items: center;
 
   padding: .25rem;
   border-top: 1px solid #3b3c3d;
+}
+
+.application-table-row li:not(.status) {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.application-table-row select {
+  border: none;
+  background-color: #2e2f30;
+  padding: .35rem .75rem;
+  text-align: center;
+  width: fit-content;
+  border-radius: 6px;
+  text-overflow: none;
+  cursor: pointer;
+}
+
+.application-table-row select:hover {
+  background-color: #404244;
 }
 
 .table-header {
@@ -84,14 +109,29 @@ nav {
 }
 
 .application-table-row button {
-  height: 22px;
-  width: 22px;
-  display: flex;
-  flex-direction: column;
+  padding: none;
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
   align-items: center;
+  text-align: center;
   margin: 0 auto;
+  cursor: pointer;
+  aspect-ratio: 1/1;
+  padding: 0rem .5rem;
 }
 
+.application-table-row button:hover {
+  background-color: #2e2f30;
+}
+
+.starred-on {
+  color: #e7b50e
+}
+
+.starred-off {
+  color: #515355
+}
 
 
 

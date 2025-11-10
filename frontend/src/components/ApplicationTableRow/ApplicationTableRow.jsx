@@ -1,17 +1,32 @@
 import { useState } from "react"
 
 const ApplicationTableRow = (props) => {
-
+  
   const [status, setStatus] = useState(props.application.status)
+  const [starred, setStarred] = useState(props.application.starred)
 
   const handleStatusChange = async (event) => {
-    await setStatus(event.target.value);
+
+    const { name, checked, value } = event.target;
+    let submission = {}
+
+    if (name === "starred") {
+      const newStarred = checked ? "on" : "off";
+      setStarred(newStarred);
+      submission = { starred: checked ? "true" : "false" };
+    }
+
+    if (name === "status") {
+      setStatus(value);
+      submission = { status: value };
+    }
+    
     const response = await fetch(`http://localhost:3000/api/applications/${props.application._id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({status: event.target.value}),
+      body: JSON.stringify(submission),
     });
     const data = await response.json();
     console.log(data)
@@ -20,7 +35,10 @@ const ApplicationTableRow = (props) => {
   return (
     <li className="application-table-row">
       <ul>
-        <li>{props.application.starred && <p>*</p>}</li>
+        <li>
+          <input type="checkbox" name="starred" checked={starred === "on"} onChange={handleStatusChange} />
+          <label htmlFor="starred">★</label>
+        </li>
         <li>{props.application.company}</li>
         <li>{props.application.position}</li>
         <li>{props.application.salary}</li>
@@ -34,7 +52,7 @@ const ApplicationTableRow = (props) => {
             <option value="Accepted">Accepted</option>
           </select>
         </li>
-        <li><button onClick={() => { props.toggleConfirmationModal(props.application) } }>x</button></li>
+        <li><button onClick={() => { props.toggleConfirmationModal(props.application) }}>🗑️</button></li>
       </ul>
     </li>
   )
